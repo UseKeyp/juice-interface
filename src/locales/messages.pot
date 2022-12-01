@@ -290,6 +290,12 @@ msgstr ""
 msgid "Add funds to this project's balance without minting tokens."
 msgstr ""
 
+msgid "Add funds"
+msgstr ""
+
+msgid "Add funds to your wallet"
+msgstr ""
+
 msgid "Add handle"
 msgstr ""
 
@@ -2955,6 +2961,9 @@ msgid "Time Remaining"
 msgstr ""
 
 msgid "Time remaining for changes made to affect the next funding cycle:"
+msgstr ""
+
+msgid "To contribute"
 msgstr ""
 
 msgid "To do so, you need to give your V1 token holders the ability to exchange their V1 tokens for V2 tokens. Select <0>Set up token migration</0> below to get started."

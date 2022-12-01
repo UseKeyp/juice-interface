@@ -1,3 +1,4 @@
+import { t } from '@lingui/macro'
 import InputAccessoryButton from 'components/InputAccessoryButton'
 import { CurrencyContext } from 'contexts/currencyContext'
 import { NftRewardsContext } from 'contexts/nftRewardsContext'
@@ -6,6 +7,10 @@ import { useContext } from 'react'
 import FormattedNumberInput from '../../inputs/FormattedNumberInput'
 import PayInputSubText from './PayInputSubText'
 import { PayProjectFormContext } from './payProjectFormContext'
+import Link from 'next/link'
+import { useEthBalanceQuery } from '../../../hooks/EthBalance'
+import { useWallet } from 'hooks/Wallet'
+import { BigNumber } from '@ethersproject/bignumber'
 
 export function PayProjectForm({ disabled }: { disabled?: boolean }) {
   const {
@@ -16,6 +21,12 @@ export function PayProjectForm({ disabled }: { disabled?: boolean }) {
     nftRewards: { rewardTiers },
   } = useContext(NftRewardsContext)
   const { PayButton, form: payProjectForm } = useContext(PayProjectFormContext)
+  const { userAddress } = useWallet()
+  const { data: balance } = useEthBalanceQuery(userAddress)
+  const amount: BigNumber | undefined = balance
+  const showAddFunds: boolean | undefined =
+    amount === undefined || amount?.isZero()
+
   const {
     payAmount,
     setPayAmount,
@@ -56,13 +67,27 @@ export function PayProjectForm({ disabled }: { disabled?: boolean }) {
 
   if (!PayButton) return null
 
+  const addFundsText: string = t`Add funds`
+
+  const contributeText: string = t`to contribute`
+
   return (
     <>
+      {showAddFunds && !errorMessage && (
+        <div className="text-xs">
+          <Link href="/addfunds">{addFundsText}</Link> {contributeText}.
+        </div>
+      )}
       {errorMessage && (
-        <div className="h-5">
+        <div className={`${!showAddFunds ? 'h-10' : 'h-5'}`}>
           <span className="text-xs text-error-600 dark:text-error-500">
             {errorMessage}
           </span>
+          {!showAddFunds && (
+            <div className="text-xs">
+              <Link href="/addfunds">{addFundsText}</Link> {contributeText}.
+            </div>
+          )}
         </div>
       )}
       <div className="flex w-full flex-wrap gap-2">
