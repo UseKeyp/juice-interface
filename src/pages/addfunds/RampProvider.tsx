@@ -1,8 +1,6 @@
-// import Icon from 'src/components/Icon'
-// import LoadingDots from 'src/components/LoadingDots'
-// import Button from 'src/components/Button'
-
-import Image from 'next/image'
+import Icon from './Icon'
+import { useContext } from 'react'
+import { ThemeContext } from '../../contexts/themeContext'
 
 const RampProvider = ({
   error,
@@ -19,6 +17,7 @@ const RampProvider = ({
   name,
   successText,
 }) => {
+  const { isDarkMode } = useContext(ThemeContext)
   const backgroundColor = 'bg-[#18B4C7]'
   const buttonClassName = `flex mt-4 justify-center items-center w-32 h-[40px] text-xl ${backgroundColor}`
   let errorText
@@ -34,12 +33,11 @@ const RampProvider = ({
   )
 
   const iconContent = iconName ? (
-    <Image
-      src={'/mstile-150x150.png'}
-      alt={iconName}
-      width={45}
-      height={45}
-      loading="lazy"
+    <Icon
+      name={iconName}
+      size="45%"
+      color={isDarkMode ? 'white' : 'black'}
+      className="mb-2"
     />
   ) : (
     <h2>{name}</h2>
