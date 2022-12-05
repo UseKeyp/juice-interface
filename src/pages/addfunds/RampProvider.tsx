@@ -1,12 +1,14 @@
 import Icon from './Icon'
 import { useContext } from 'react'
 import { ThemeContext } from '../../contexts/themeContext'
+import Loading from '../../components/Loading'
 
 const RampProvider = ({
   error,
-  isLoading,
+  isLoading = false,
   onSubmit,
   buttonText = 'Continue',
+  disabled,
   status,
   highlight,
   highlightStatus,
@@ -18,7 +20,8 @@ const RampProvider = ({
   successText,
 }) => {
   const { isDarkMode } = useContext(ThemeContext)
-  const backgroundColor = 'bg-[#18B4C7]'
+  const backgroundColor =
+    isLoading || disabled ? 'bg-grey-700 pointer-events-none' : 'bg-[#18B4C7]'
   const buttonClassName = `flex mt-4 justify-center items-center w-32 h-[40px] text-xl ${backgroundColor}`
   let errorText
   if (error != null && error != '' && error.length > 0) {
@@ -27,9 +30,14 @@ const RampProvider = ({
     errorText = ''
   }
   const button = (
-    <div id="connection-button" className={buttonClassName} onClick={onSubmit}>
-      {isLoading ? <div /> : buttonText}
-    </div>
+    <button
+      id="connection-button"
+      className={buttonClassName}
+      onClick={onSubmit}
+      disabled={isLoading || disabled}
+    >
+      {isLoading ? <Loading /> : buttonText}
+    </button>
   )
 
   const iconContent = iconName ? (
@@ -42,14 +50,13 @@ const RampProvider = ({
   ) : (
     <h2>{name}</h2>
   )
-
   return (
     <div
-      className={`align-center bg-chessBlack-200 h-full rounded-lg border-[1px] p-4 ${
+      className={`bg-chessBlack-200 h-full border-[1px] border-solid border-black p-4 dark:border-solid dark:border-grey-600 ${
         highlight ? 'border-green' : 'border-chessBlack-200'
       }`}
     >
-      <div className="align-center flex items-center">{iconContent}</div>
+      <div className="align-center flex flex items-center">{iconContent}</div>
       {description && <div className="mt-2">{description}</div>}
       {status && (
         <h2

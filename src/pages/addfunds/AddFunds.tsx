@@ -13,9 +13,13 @@ import { useCurrencyConverter } from '../../hooks/CurrencyConverter'
 import { formatEther } from 'ethers/lib/utils'
 import useMobile from '../../hooks/Mobile'
 import ETHAmount from '../../components/currency/ETHAmount'
+
 export default function AddFunds() {
   const isMobile = useMobile()
   const { userAddress } = useWallet()
+  //TODO: troubleshoot submitRamp
+
+  // const {submitRamp} = useRamp()
   const { data: userBalanceWei } = useEthBalanceQuery(userAddress)
   const converter = useCurrencyConverter()
   const userBalanceUsd = converter.wadToCurrency(userBalanceWei, 'USD', 'ETH')
@@ -31,7 +35,14 @@ export default function AddFunds() {
           <div className="flex">Powered by Keyp</div>
         </div>
         <div className="flex items-end text-xs text-[#18B4C7]">
-          <div className="flex">Learn more</div>
+          <a
+            href="https://usekeyp.com/"
+            target="_blank"
+            className="underline"
+            rel="noreferrer"
+          >
+            <div className="flex">Learn more</div>
+          </a>
         </div>
       </div>
       <div className="my-2 flex flex-col">
@@ -45,13 +56,35 @@ export default function AddFunds() {
           />{' '}
           <CopyTextButton value={userAddress} className="z-10 ml-2" />
         </div>
-        <div className="my-4 mt-8 flex flex-row">
-          <div>Account Balance:&nbsp;</div>
-          <div>{`${userBalanceUsdFormatted}`} USD</div>
-        </div>
-        <div className="flex flex-row">
-          <div>ETH Balance:&nbsp;</div>
-          <ETHAmount amount={userBalanceWei} fallback="--" hideTooltip={true} />
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col">
+            <div className="my-4 mt-8 flex flex-row gap-x-20">
+              <div>Account Balance:&nbsp;</div>
+              <div
+                className={`${
+                  userBalanceUsdFormatted ? 'text-success-500' : ''
+                }`}
+              >
+                {`${userBalanceUsdFormatted}`} USD
+              </div>
+            </div>
+            <div className="flex flex-row gap-x-28">
+              <div>ETH Balance:&nbsp;</div>
+              <div className={`${userBalanceWei ? 'text-success-500' : ''}`}>
+                <ETHAmount
+                  amount={userBalanceWei}
+                  fallback="--"
+                  hideTooltip={true}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 flex flex-col justify-center bg-success-500 p-6 text-left">
+            <div className="flex">
+              Funding Successful. Transaction Pending. View on Etherscan.
+            </div>
+            <div>This might take a few minutes</div>
+          </div>
         </div>
       </div>
       <BigHeading className="mt-8 mb-8" text={'Add Funds'} />
@@ -59,13 +92,13 @@ export default function AddFunds() {
         {[...onRampList].map(ramp => {
           if (!ramp) return null
           const onSubmit = () => {
+            // TODO: troubleshoot submitRamp
             // submitRamp({ direction: 'ON', type: ramp.type })
           }
           return (
             <RampProvider
               key={ramp.name}
               onSubmit={onSubmit}
-              // isLoading={ramp.isLoading}
               isLoading={false}
               {...ramp}
             />
