@@ -13,8 +13,10 @@ import { useCurrencyConverter } from '../../hooks/CurrencyConverter'
 import { formatEther } from 'ethers/lib/utils'
 import useMobile from '../../hooks/Mobile'
 import ETHAmount from '../../components/currency/ETHAmount'
+import { useState } from 'react'
 
 export default function AddFunds() {
+  const [transactionPending] = useState(false)
   const isMobile = useMobile()
   const { userAddress } = useWallet()
   //TODO: troubleshoot submitRamp
@@ -79,12 +81,16 @@ export default function AddFunds() {
               </div>
             </div>
           </div>
-          <div className="mt-8 flex flex-col justify-center bg-success-500 p-6 text-left">
-            <div className="flex">
-              Funding Successful. Transaction Pending. View on Etherscan.
+          {transactionPending ? (
+            <div className="mt-8 flex flex-col justify-center bg-success-500 p-6 text-left">
+              <div className="flex">
+                Funding Successful. Transaction Pending. View on Etherscan.
+              </div>
+              <div>This might take a few minutes</div>
             </div>
-            <div>This might take a few minutes</div>
-          </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
       <BigHeading className="mt-8 mb-8" text={'Add Funds'} />
