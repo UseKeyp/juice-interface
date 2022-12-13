@@ -122,9 +122,6 @@ msgstr ""
 msgid "<0>Discount rate</0>, to reduce your project token's issuance rate (tokens per ETH) each funding cycle."
 msgstr ""
 
-msgid "<0>Fee: 1.5% + CHF 1.2</0> (<1>details</1>)<2/>Available in most places excluding the US (<3>list</3>)<4/>Limit: CHF 200/purchase"
-msgstr ""
-
 msgid "<0>Fee: 2.9% + $0.30</0> (<1>details</1>)<2/>Available in most places (<3>list</3>)<4/>Limit: $100/day"
 msgstr ""
 
@@ -3296,6 +3293,9 @@ msgid "We've disabled payments because the project has opted to reserve 100% of 
 msgstr ""
 
 msgid "Website"
+msgstr ""
+
+msgid "Wert.io checkout"
 msgstr ""
 
 msgid "What are automated funding cycles?"
