@@ -99,38 +99,4 @@ export const onRampList = [
       </p>
     ),
   },
-  {
-    iconName: 'mt_pelerin',
-    name: 'Mt Pelerin',
-    type: 'MT_PELERIN',
-    description: (
-      <p className="mt-4">
-        <Trans>
-          <b>Fee: 1.5% + CHF 1.2</b> (
-          <a
-            href="https://www.mtpelerin.com/pricing"
-            target="_blank"
-            className="underline"
-            rel="noreferrer"
-          >
-            details
-          </a>
-          )
-          <br />
-          Available in most places excluding the US (
-          <a
-            href="https://developers.mtpelerin.com/service-information/supported-countries"
-            target="_blank"
-            className="underline"
-            rel="noreferrer"
-          >
-            list
-          </a>
-          )
-          <br />
-          Limit: CHF 200/purchase
-        </Trans>
-      </p>
-    ),
-  },
 ]

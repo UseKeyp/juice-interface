@@ -5,7 +5,7 @@ import Loading from '../../components/Loading'
 
 const RampProvider = ({
   error,
-  isLoading = false,
+  isLoading,
   onSubmit,
   buttonText = 'Continue',
   disabled,
