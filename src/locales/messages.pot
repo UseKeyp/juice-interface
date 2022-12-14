@@ -122,9 +122,6 @@ msgstr ""
 msgid "<0>Discount rate</0>, to reduce your project token's issuance rate (tokens per ETH) each funding cycle."
 msgstr ""
 
-msgid "<0>Fee: 2.9% + $0.30</0> (<1>details</1>)<2/>Available in most places (<3>list</3>)<4/>Limit: $100/day"
-msgstr ""
-
 msgid "<0>Fee: 2.9% </0>(<1>details</1>)<2/>Available in most places (<3>list</3>)<4/>Limit: €100/day"
 msgstr ""
 
@@ -2973,11 +2970,6 @@ msgid "Time Remaining"
 msgstr ""
 
 msgid "Time remaining for changes made to affect the next funding cycle:"
-msgstr ""
-
-msgid ""
-"Tip: Do not use auto-complete, a password manager, or copy/paste. Try\n"
-"using a different email if your first attempt fails."
 msgstr ""
 
 msgid "To do so, you need to give your V1 token holders the ability to exchange their V1 tokens for V2 tokens. Select <0>Set up token migration</0> below to get started."
