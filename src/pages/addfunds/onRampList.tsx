@@ -1,4 +1,4 @@
-import { t, Trans } from '@lingui/macro'
+import { Trans } from '@lingui/macro'
 
 export const onRampList = [
   {
@@ -55,46 +55,6 @@ export const onRampList = [
           )
           <br />
           Limit: €100/day
-        </Trans>
-      </p>
-    ),
-  },
-  {
-    type: 'WYRE',
-    iconName: 'wyre',
-    name: 'Wyre',
-    helperText: (
-      <p>
-        {t`Tip: Do not use auto-complete, a password manager, or copy/paste. Try
-          using a different email if your first attempt fails.`}
-      </p>
-    ),
-    description: (
-      <p className="mt-4">
-        <Trans>
-          <b>Fee: 2.9% + $0.30</b> (
-          <a
-            href="https://support.sendwyre.com/hc/en-us/articles/360059565013-Wyre-card-processing-fees"
-            target="_blank"
-            className="underline"
-            rel="noreferrer"
-          >
-            details
-          </a>
-          )
-          <br />
-          Available in most places (
-          <a
-            href="https://docs.sendwyre.com/reference/hosted-checkout#supported-states-and-countries"
-            target="_blank"
-            className="underline"
-            rel="noreferrer"
-          >
-            list
-          </a>
-          )
-          <br />
-          Limit: $100/day
         </Trans>
       </p>
     ),
