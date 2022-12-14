@@ -18,12 +18,12 @@ const WertPage = () => {
                 options={{
                   origin:
                     process.env.NODE_ENV === 'development'
-                      ? 'https://widget.wert.io'
-                      : 'https://sandbox.wert.io',
+                      ? 'https://sandbox.wert.io'
+                      : 'https://widget.wert.io',
                   partner_id:
                     process.env.NODE_ENV === 'development'
-                      ? '01G6BAFZZKJW8SN5P3FRCKGDHV'
-                      : '01G5FDZZ2RY85QT8WY7AMN95P5',
+                      ? '01G5FDZZ2RY85QT8WY7AMN95P5'
+                      : '01G6BAFZZKJW8SN5P3FRCKGDHV',
                   container_id: 'wert',
                   // width: 400,
                   height: 550,
@@ -32,12 +32,12 @@ const WertPage = () => {
                   // commodity_amount: 5;
                   commodity:
                     process.env.NODE_ENV === 'development'
-                      ? 'ETH:ethereum'
-                      : 'ETH',
+                      ? 'ETH'
+                      : 'ETH:ethereum',
                   commodities:
                     process.env.NODE_ENV === 'development'
-                      ? 'ETH:ethereum'
-                      : 'ETH',
+                      ? 'ETH'
+                      : 'ETH:ethereum',
                   address,
                   email,
                   redirect_url: `${process.env.NEXT_PUBLIC_BASE_URL}redirect/wert`,
