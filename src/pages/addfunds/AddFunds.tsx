@@ -15,6 +15,7 @@ import ETHAmount from '../../components/currency/ETHAmount'
 import React, { useState } from 'react'
 import popupLoadingHtml from './popupLoadingHtml'
 import { isBrowser } from '../../utils/isBrowser'
+import { Trans } from '@lingui/macro'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const CryptoJS = require('crypto-js')
 
@@ -77,7 +78,9 @@ export default function AddFunds() {
       return data
     })
   }
-  const createDepositReservation = async destinationAddress => {
+  const createDepositReservation = async (
+    destinationAddress: string | undefined,
+  ) => {
     try {
       const url = `${API_URL}/orders/reserve`
       const data = {
@@ -159,7 +162,7 @@ export default function AddFunds() {
     } catch (e) {
       setState({ ...state, isLoading: false, rampError: e })
       myWindow.document.write(
-        `<h3>Oops! An error occured<br/><br/>Sending you back...</h3><p>${e}</p>`,
+        `<h3><Trans>Oops! An error occured</Trans><br/><br/><Trans>Sending you back...</Trans></h3><p>${e}</p>`,
       )
       setTimeout(() => {
         myWindow.close()
@@ -182,7 +185,9 @@ export default function AddFunds() {
       <div className="flex flex-row gap-x-2">
         <BigHeading text={'Your Wallet'} />
         <div className="flex items-end text-xs">
-          <div className="flex">Powered by Keyp</div>
+          <div className="flex">
+            <Trans>Powered by Keyp</Trans>
+          </div>
         </div>
         <div className="flex items-end text-xs text-[#18B4C7]">
           <a
@@ -191,13 +196,17 @@ export default function AddFunds() {
             className="underline"
             rel="noreferrer"
           >
-            <div className="flex">Learn more</div>
+            <div className="flex">
+              <Trans>Learn more</Trans>
+            </div>
           </a>
         </div>
       </div>
       <div className="my-2 flex flex-col">
         <div className="flex flex-row">
-          <div>Wallet:&nbsp;</div>
+          <div>
+            <Trans>Wallet:&nbsp;</Trans>
+          </div>
           <EtherscanLink
             value={userAddress}
             truncated={isMobile}
@@ -209,7 +218,9 @@ export default function AddFunds() {
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
             <div className="my-4 mt-8 flex flex-row gap-x-20">
-              <div>Account Balance:&nbsp;</div>
+              <div>
+                <Trans>Account Balance:&nbsp;</Trans>
+              </div>
               <div
                 className={`${
                   userBalanceUsdFormatted ? 'text-success-500' : ''
@@ -219,7 +230,9 @@ export default function AddFunds() {
               </div>
             </div>
             <div className="flex flex-row gap-x-28">
-              <div>ETH Balance:&nbsp;</div>
+              <div>
+                <Trans>ETH Balance:&nbsp;</Trans>
+              </div>
               <div className={`${userBalanceWei ? 'text-success-500' : ''}`}>
                 <ETHAmount
                   amount={userBalanceWei}
@@ -232,9 +245,13 @@ export default function AddFunds() {
           {transactionPending ? (
             <div className="mt-8 flex flex-col justify-center bg-success-500 p-6 text-left">
               <div className="flex">
-                Funding Successful. Transaction Pending. View on Etherscan.
+                <Trans>
+                  Funding Successful. Transaction Pending. View on Etherscan.
+                </Trans>
               </div>
-              <div>This might take a few minutes</div>
+              <div>
+                <Trans>This might take a few minutes</Trans>
+              </div>
             </div>
           ) : (
             <></>
