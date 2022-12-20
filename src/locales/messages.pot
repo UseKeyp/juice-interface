@@ -269,6 +269,9 @@ msgstr ""
 msgid "Accessible via the URL <0>{exampleHandleUrl}</0>."
 msgstr ""
 
+msgid "Account Balance:"
+msgstr ""
+
 msgid "Active"
 msgstr ""
 
@@ -1160,6 +1163,9 @@ msgstr ""
 msgid "ERC20 transaction not ready. Try again."
 msgstr ""
 
+msgid "ETH Balance:"
+msgstr ""
+
 msgid "Each payout will receive their percent of this total each funding cycle if there is enough in the treasury. Otherwise, they will receive their percent of whatever is in the treasury."
 msgstr ""
 
@@ -1332,6 +1338,9 @@ msgid "Funding Cycle #1 will start immediately after you launch your project. Yo
 msgstr ""
 
 msgid "Funding Cycles"
+msgstr ""
+
+msgid "Funding Successful. Transaction Pending. View on Etherscan."
 msgstr ""
 
 msgid "Funding Target"
@@ -1626,6 +1635,9 @@ msgid "Launch veNFT {symbol}"
 msgstr ""
 
 msgid "Launch {projectTitle}"
+msgstr ""
+
+msgid "Learn more"
 msgstr ""
 
 msgid "Leave blank to start immediately."
@@ -2112,6 +2124,9 @@ msgid "Podcast"
 msgstr ""
 
 msgid "Potential risks"
+msgstr ""
+
+msgid "Powered by Keyp"
 msgstr ""
 
 msgid "Preview"
@@ -2930,6 +2945,9 @@ msgstr ""
 msgid "This list is using an experimental data index and may be inaccurate for some projects."
 msgstr ""
 
+msgid "This might take a few minutes"
+msgstr ""
+
 msgid "This project has no distributions."
 msgstr ""
 
@@ -3279,6 +3297,9 @@ msgid "Wallet Address"
 msgstr ""
 
 msgid "Wallet address"
+msgstr ""
+
+msgid "Wallet:"
 msgstr ""
 
 msgid "We've disabled payments because the project has opted to reserve 100% of new tokens. You would receive no tokens from your payment."
