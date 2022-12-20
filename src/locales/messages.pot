@@ -119,6 +119,12 @@ msgstr ""
 msgid "<0>Discount rate</0>, to reduce your project token's issuance rate (tokens per ETH) each funding cycle."
 msgstr ""
 
+msgid "<0>Fee: 2.9% </0>(<1>details</1>)<2/>Available in most places (<3>list</3>)<4/>Limit: €100/day"
+msgstr ""
+
+msgid "<0>Fee: 5%</0> <1/>Available in most places (<2>list</2>)<3/>Limit: $1,000 w/o KYC"
+msgstr ""
+
 msgid "<0>If you know how much your project needs to earn over some period of time to be sustainable, you can set a funding target with that amount. If your project earns more than that, the surplus funds are locked in an overflow pool. Anyone holding your project's tokens can claim a portion of the overflow pool in exchange for redeeming their tokens.</0><1>For more info, check out this <2>short video</2>.</1>"
 msgstr ""
 
@@ -138,6 +144,9 @@ msgid "<0>Learn more</0> about funding cycles."
 msgstr ""
 
 msgid "<0>Learn more</0> about overflow."
+msgstr ""
+
+msgid "<0>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</0>"
 msgstr ""
 
 msgid "<0>Max. supply:</0> <1>{0}</1>"
@@ -266,6 +275,9 @@ msgstr ""
 msgid "Accessible via the URL <0>{exampleHandleUrl}</0>."
 msgstr ""
 
+msgid "Account Balance:"
+msgstr ""
+
 msgid "Active"
 msgstr ""
 
@@ -293,7 +305,13 @@ msgstr ""
 msgid "Add an on-chain memo to this payment."
 msgstr ""
 
+msgid "Add funds"
+msgstr ""
+
 msgid "Add funds to this project's balance without minting tokens."
+msgstr ""
+
+msgid "Add funds to your wallet"
 msgstr ""
 
 msgid "Add handle"
@@ -1178,6 +1196,9 @@ msgstr ""
 msgid "ERC20 transaction not ready. Try again."
 msgstr ""
 
+msgid "ETH Balance:"
+msgstr ""
+
 msgid "Each payout will receive their percent of this total each funding cycle if there is enough in the treasury. Otherwise, they will receive their percent of whatever is in the treasury."
 msgstr ""
 
@@ -1353,6 +1374,9 @@ msgid "Funding Cycle #1 will start immediately after you launch your project. Yo
 msgstr ""
 
 msgid "Funding Cycles"
+msgstr ""
+
+msgid "Funding Successful. Transaction Pending. View on Etherscan."
 msgstr ""
 
 msgid "Funding Target"
@@ -1656,6 +1680,9 @@ msgid "Launch veNFT {symbol}"
 msgstr ""
 
 msgid "Launch {projectTitle}"
+msgstr ""
+
+msgid "Learn more"
 msgstr ""
 
 msgid "Leave blank to start immediately."
@@ -2157,6 +2184,9 @@ msgid "Podcast"
 msgstr ""
 
 msgid "Potential risks"
+msgstr ""
+
+msgid "Powered by Keyp"
 msgstr ""
 
 msgid "Preview"
@@ -3023,6 +3053,9 @@ msgstr ""
 msgid "This list is using an experimental data index and may be inaccurate for some projects."
 msgstr ""
 
+msgid "This might take a few minutes"
+msgstr ""
+
 msgid "This project has no distributions."
 msgstr ""
 
@@ -3398,10 +3431,16 @@ msgstr ""
 msgid "Wallet address"
 msgstr ""
 
+msgid "Wallet:"
+msgstr ""
+
 msgid "We've disabled payments because the project has opted to reserve 100% of new tokens. You would receive no tokens from your payment."
 msgstr ""
 
 msgid "Website"
+msgstr ""
+
+msgid "Wert.io checkout"
 msgstr ""
 
 msgid "What are automated funding cycles?"
@@ -3414,6 +3453,9 @@ msgid "What are the risks?"
 msgstr ""
 
 msgid "What does Juicebox cost?"
+msgstr ""
+
+msgid "What does powered by Keyp mean?"
 msgstr ""
 
 msgid "What is overflow?"
@@ -3735,6 +3777,9 @@ msgid "projects"
 msgstr ""
 
 msgid "seconds"
+msgstr ""
+
+msgid "to contribute"
 msgstr ""
 
 msgid "token"
