@@ -120,7 +120,6 @@ export default function AddFunds() {
             hostLogoUrl:
               'https://usekeyp.com/lib_EuhSXxjdIHnRGpWc/1losb3su6g1bq058.svg?w=224',
             hostAppName: 'Keyp',
-            swapAsset: 'ETH_ETH',
             finalUrl: `${
               process.env.NODE_ENV === 'development'
                 ? DEV_ORIGIN
