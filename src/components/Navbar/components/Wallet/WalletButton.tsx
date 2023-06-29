@@ -1,24 +1,25 @@
 import { WarningOutlined } from '@ant-design/icons'
 import { Trans } from '@lingui/macro'
 import { Button } from 'antd'
-import { useWallet } from 'hooks/Wallet'
+import { useJBWallet } from 'hooks/Wallet/useJBWallet'
 
+import { WalletContext } from 'contexts/Wallet/WalletContext'
+import { useContext } from 'react'
 import WalletMenu from './WalletMenu'
 
 export default function WalletButton() {
-  const {
-    userAddress,
-    isConnected,
-    connect,
-    chainUnsupported,
-    changeNetworks,
-  } = useWallet()
+  const { connect } = useContext(WalletContext)
+
+  const { eoa, isConnected, userAddress } = useJBWallet()
+  const { chainUnsupported, changeNetworks } = eoa
 
   if (!isConnected) {
     return (
-      <Button onClick={() => connect()} block>
-        <Trans>Connect</Trans>
-      </Button>
+      <div>
+        <Button onClick={connect} block>
+          <Trans>Connect</Trans>
+        </Button>
+      </div>
     )
   }
 

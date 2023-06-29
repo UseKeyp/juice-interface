@@ -8,6 +8,7 @@ import { V2V3ProjectContext } from 'contexts/v2v3/Project/V2V3ProjectContext'
 import { BigNumber } from 'ethers'
 import { usePayETHPaymentTerminalTx } from 'hooks/v2v3/transactor/usePayETHPaymentTerminalTx'
 import { useWallet } from 'hooks/Wallet'
+import { useJBWallet } from 'hooks/Wallet/useJBWallet'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { buildPaymentMemo } from 'utils/buildPaymentMemo'
@@ -35,12 +36,12 @@ export function V2V3ConfirmPayModal({
 
   const router = useRouter()
   const {
-    userAddress,
+    // userAddress,
     chainUnsupported,
-    isConnected,
     changeNetworks,
     connect,
   } = useWallet()
+  const { userAddress, isConnected } = useJBWallet()
   const delegateMetadata = useDelegateMetadata()
   const nftRewardTiers = useNftRewardTiersToMint()
   const payProjectTx = usePayETHPaymentTerminalTx()

@@ -25,15 +25,6 @@ export type TransactionLog = {
   title: string
   createdAt: number
   callbacks?: TransactionCallbacks
-} & (
-  | {
-      // Only pending txs have not been mined
-      status: TxStatus.pending
-      tx: Transaction | null
-    }
-  | {
-      // Once mined, tx will be a TransactionResponse
-      status: TxStatus.success | TxStatus.failed
-      tx: providers.TransactionResponse | null
-    }
-)
+  status: TxStatus.success | TxStatus.failed | TxStatus.pending
+  tx: Partial<Pick<providers.TransactionResponse, 'hash' | 'timestamp'>> | null
+}
