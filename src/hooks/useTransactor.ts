@@ -50,7 +50,6 @@ function sendKeypTransaction({
   contract,
   args,
   accessToken,
-  value,
 }: {
   contract: Contract
   args: string[]
@@ -59,22 +58,15 @@ function sendKeypTransaction({
 }) {
   const { address } = contract
 
-  const abi = JSON.stringify(contract.interface.fragments)
-
-  console.log(
-    'asdf req data',
-    { address },
-    { abi },
-    { accessToken },
-    contract.interface.fragments,
-  )
+  const abiFragment =
+    'pay(uint256 _projectId,uint256 _amount,address _token,address _beneficiary,uint256 _minReturnedTokens,bool _preferClaimedTokens,string _memo,bytes _metadata) public returns (bool success)'
 
   return writeContract({
     accessToken,
     address,
-    abi,
+    abi: abiFragment,
     args,
-    value: value?.toHexString(),
+    value: args[1],
   })
 }
 
@@ -191,7 +183,6 @@ export function useTransactor(): Transactor | undefined {
         const txTitle = options?.title ?? functionName
 
         // add transaction to the history UI
-        console.log('asdf result', result)
         if (result) {
           addTransaction?.(txTitle, result, {
             onConfirmed,
