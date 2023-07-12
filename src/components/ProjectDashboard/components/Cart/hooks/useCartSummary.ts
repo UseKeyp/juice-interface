@@ -1,11 +1,13 @@
 import { useProjectCart } from 'components/ProjectDashboard/hooks'
 import { NftRewardsContext } from 'contexts/NftRewards/NftRewardsContext'
-import { useWallet } from 'hooks/Wallet'
+import { WalletContext } from 'contexts/Wallet/WalletContext'
+import { useJBWallet } from 'hooks/Wallet/useJBWallet'
 import { useCallback, useContext, useMemo } from 'react'
 import { formatCurrencyAmount } from 'utils/formatCurrencyAmount'
 
 export const useCartSummary = () => {
-  const { isConnected, connect } = useWallet()
+  const { isConnected } = useJBWallet()
+  const { connect } = useContext(WalletContext)
   const cart = useProjectCart()
   const nftRewardsCtx = useContext(NftRewardsContext).nftRewards
   const tiers = useMemo(
@@ -34,7 +36,7 @@ export const useCartSummary = () => {
 
   const payProject = useCallback(() => {
     if (!isConnected) {
-      connect()
+      connect?.()
       return
     }
     cart.dispatch({ type: 'openPayModal' })

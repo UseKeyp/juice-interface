@@ -5,9 +5,9 @@ import TransactionModal from 'components/modals/TransactionModal'
 import { NFT_PAYMENT_CONFIRMED_QUERY_PARAM } from 'components/NftRewards/NftPostPayModal'
 import { ProjectMetadataContext } from 'contexts/shared/ProjectMetadataContext'
 import { V2V3ProjectContext } from 'contexts/v2v3/Project/V2V3ProjectContext'
+import { WalletContext } from 'contexts/Wallet/WalletContext'
 import { BigNumber } from 'ethers'
 import { usePayETHPaymentTerminalTx } from 'hooks/v2v3/transactor/usePayETHPaymentTerminalTx'
-import { useWallet } from 'hooks/Wallet'
 import { useJBWallet } from 'hooks/Wallet/useJBWallet'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
@@ -35,13 +35,8 @@ export function V2V3ConfirmPayModal({
   const [form] = useForm<V2V3PayFormType>()
 
   const router = useRouter()
-  const {
-    // userAddress,
-    chainUnsupported,
-    changeNetworks,
-    connect,
-  } = useWallet()
-  const { userAddress, isConnected } = useJBWallet()
+  const { userAddress, isConnected, eoa } = useJBWallet()
+  const { connect } = useContext(WalletContext)
   const delegateMetadata = useDelegateMetadata()
   const nftRewardTiers = useNftRewardTiersToMint()
   const payProjectTx = usePayETHPaymentTerminalTx()
@@ -55,12 +50,12 @@ export function V2V3ConfirmPayModal({
 
   const handleOkButtonClick = async () => {
     // Prompt wallet connect if no wallet connected
-    if (chainUnsupported) {
-      await changeNetworks()
+    if (eoa.chainUnsupported) {
+      await eoa.changeNetworks()
       return
     }
     if (!isConnected) {
-      await connect()
+      await connect?.()
       return
     }
 
